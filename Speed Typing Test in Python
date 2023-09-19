@@ -1,0 +1,37 @@
+
+import time
+
+def get_random_sentence():
+    sentences = [
+        "Learn from mistakes.",
+        "Python is a versatile programming language.",
+        "Coding is fun and challenging task.",
+        "Practice makes perfect.",
+        "Practice makes perfect.",
+    ]
+    return random.choice(sentences)
+
+def main():
+    print("Welcome to the Speed Typing Test!")
+    input("Press Enter to start...")
+    
+    sentence = get_random_sentence()
+    print("\nType the following sentence as fast as you can:")
+    print(sentence)
+    
+    start_time = time.time()
+    user_input = input("Your typing: ")
+    end_time = time.time()
+    
+    if user_input.strip() == sentence:
+        elapsed_time = end_time - start_time
+        words_per_minute = len(sentence.split()) / (elapsed_time / 60)
+        print(f"Great! You typed it correctly in {elapsed_time:.2f} seconds.")
+        print(f"Your typing speed: {words_per_minute:.2f} words per minute")
+    else:
+        print("Oops! You made a mistake. Try again.")
+
+if __name__ == "__main__":
+    main()
+
+
